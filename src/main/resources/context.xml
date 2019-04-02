@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-be..">
+
+    <bean id="arabica" class="simplespring.Ingr.CoffeArabic"/>
+    <bean id="milk" class="simplespring.Ingr.Milk"/>
+    <bean id="water" class="simplespring.Ingr.Water"/>
+    <bean id="power" class="simplespring.Ingr.Power"/>
+
+    <bean id="coffemachine" class="simplespring.Coffemachine">
+        <constructor-arg ref="arabica"/>
+        <constructor-arg ref="milk"/>
+        <constructor-arg ref="water"/>
+        <constructor-arg ref="power"/>
+    </bean>
+
+    <bean id="caffe" class="simplespring.Caffe">
+        <property name="coffemachine" ref="coffemachine"/>
+    </bean>
+
+</beans>
